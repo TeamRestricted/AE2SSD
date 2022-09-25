@@ -1,0 +1,16 @@
+modLoader="javafml"
+loaderVersion="[40,)"
+license="MIT"
+[[mods]]
+modId="ae2ssd"
+version="${file.jarVersion}"
+displayName="AE 2 Solid-state Disk"
+#updateJSONURL="https://change.me.example.invalid/updates.json" #optional
+# A URL for the "homepage" for this mod, displayed in the mod UI
+#displayURL="https://change.me.to.your.mods.homepage.example.invalid/" #optional
+logoFile="examplemod.png"
+credits="Dev with Team Restricted"
+authors="Taskeren"
+description='''
+Nothing to describe now.
+'''

@@ -1,0 +1,14 @@
+{
+  "package": "com.github.taskeren.ae2ssd.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "BasicCellHandlerMixin",
+    "BasicCellInventoryMixin",
+    "BasicStorageCellMixin",
+    "CellStateMixin",
+    "IBasicCellItemMixin"
+  ],
+  "client": [
+    "MinecraftMixin"
+  ]
+}
