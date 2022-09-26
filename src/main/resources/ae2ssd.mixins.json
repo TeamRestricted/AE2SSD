@@ -6,7 +6,7 @@
     "BasicCellInventoryMixin",
     "BasicStorageCellMixin",
     "CellStateMixin",
-    "IBasicCellItemMixin"
+    "DriveBlockEntityMixin"
   ],
   "client": [
     "MinecraftMixin"

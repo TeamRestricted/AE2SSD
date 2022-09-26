@@ -2,6 +2,7 @@ package com.github.taskeren.ae2ssd;
 
 import appeng.core.localization.GuiText;
 import appeng.core.localization.Tooltips;
+import appeng.items.storage.BasicStorageCell;
 import appeng.util.Platform;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -51,10 +52,14 @@ public class SSDCells {
 		tag.putInt(NBT_IO_COUNT, tag.getInt(NBT_IO_COUNT) + count);
 	}
 
-	public static boolean isValid(ItemStack stack) {
+	public static boolean isValidCell(ItemStack stack) {
 		var count = getIOCount(stack);
 		var maxCount = getMaxIOCount(stack);
 		return count < maxCount;
+	}
+
+	public static boolean isSupportedCell(ItemStack stack) {
+		return stack.getItem() instanceof BasicStorageCell;
 	}
 
 	// TODO: change the text

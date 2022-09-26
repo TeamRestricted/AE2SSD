@@ -11,6 +11,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+@SuppressWarnings({"UnnecessaryQualifiedMemberReference", "SpellCheckingInspection"})
 @Mixin(value = CellState.class, remap = false)
 public class CellStateMixin {
 
@@ -19,11 +20,12 @@ public class CellStateMixin {
 	@Shadow
 	private static CellState[] $VALUES;
 
-	@Inject(method = "<clinit>()V", at = @At("RETURN"))
+	@Inject(method = "Lappeng/api/storage/cells/CellState;<clinit>()V", at = @At("RETURN"))
 	private static void ae2ssd$clInit(CallbackInfo ci) {
-		$VALUES = ArrayUtils.add($VALUES, SSDMod.SSD_INVALID = (CellState) (Object) new CellStateMixin("BROKEN", $VALUES.length, 0xAAFF00));
+		$VALUES = ArrayUtils.add($VALUES, SSDMod.SSD_INVALID = (CellState) (Object) new CellStateMixin("BROKEN", $VALUES.length, 0x66CCFF));
 	}
 
+	@SuppressWarnings("unused")
 	private CellStateMixin(String name, int index, int stateColor) {
 	}
 }

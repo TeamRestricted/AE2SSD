@@ -221,4 +221,7 @@ tasks.withType(JavaCompile).configureEach {
 
 mixin {
     config 'ae2ssd.mixins.json'
+
+    debug.verbose = true
+    debug.export = true
 }

@@ -26,7 +26,8 @@ public abstract class BasicCellInventoryMixin {
 
 	@Inject(method = "getStatus", at = @At("RETURN"), cancellable = true)
 	private void ae2ssd$getStatus(CallbackInfoReturnable<CellState> cir) {
-		if(!SSDCells.isValid(i)) {
+		if(!SSDCells.isValidCell(i)) {
+			// 当损坏后更新状态
 			cir.setReturnValue(SSDMod.SSD_INVALID);
 		}
 	}
@@ -37,8 +38,7 @@ public abstract class BasicCellInventoryMixin {
 		SSDMod.LOGGER.info("Increased by insertion");
 		var insertAmount = cir.getReturnValueJ();
 		if(insertAmount != 0) {
-			SSDCells.addIOCount(i, 2);
-			saveChanges();
+			increaseIOCount(2);
 		}
 	}
 
@@ -48,14 +48,18 @@ public abstract class BasicCellInventoryMixin {
 		SSDMod.LOGGER.info("Increased by extraction "+getStatus());
 		var extractAmount = cir.getReturnValueJ();
 		if(extractAmount != 0) {
-			SSDCells.addIOCount(i, 1);
-			saveChanges();
+			increaseIOCount(1);
 		}
 	}
 
 	@Inject(method = "isCell", at = @At("RETURN"), cancellable = true)
 	private static void ae2ssd$isCell(ItemStack input, CallbackInfoReturnable<Boolean> cir) {
-		cir.setReturnValue(cir.getReturnValueZ() && SSDCells.isValid(input));
+		cir.setReturnValue(cir.getReturnValueZ() && SSDCells.isValidCell(input));
+	}
+
+	private void increaseIOCount(int count) {
+		SSDCells.addIOCount(i, count);
+		saveChanges();
 	}
 
 }
