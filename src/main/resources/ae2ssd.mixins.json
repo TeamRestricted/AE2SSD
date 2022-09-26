@@ -6,6 +6,7 @@
     "BasicCellInventoryMixin",
     "BasicStorageCellMixin",
     "CellStateMixin",
+    "ChestBlockEntityMixin",
     "DriveBlockEntityMixin"
   ],
   "client": [

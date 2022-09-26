@@ -224,4 +224,5 @@ mixin {
 
     debug.verbose = true
     debug.export = true
+    debug.hotSwap = true
 }
